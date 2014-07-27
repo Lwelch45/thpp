@@ -1,3 +1,4 @@
+The purpose of this fork is to expose the convolution methods and test out high level iterators for the tensor class.
 # TH++: A C++ tensor library
 
 TH++ is a C++ tensor library, implemented as a wrapper around the
