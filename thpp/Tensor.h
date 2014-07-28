@@ -383,10 +383,82 @@ class Tensor {
                     const Tensor& k, long srow, long scol);
   void conv2DRevger(T beta, T alpha, const Tensor& t, 
                     const Tensor& k, long srow, long scol){
-    return conv2DRevger(*r, beta, alpha, t, k, srow, scol);
+    return conv2DRevger(*this, beta, alpha, t, k, srow, scol);
+  }
+  
+  void conv2DRevgerm(const Tensor& r, T beta, T alpha, const Tensor& t, 
+                    const Tensor& k, long srow, long scol);
+  void conv2DRevgerm(T beta, T alpha, const Tensor& t, 
+                    const Tensor& k, long srow, long scol){
+    return conv2DRevgerm(*this, beta, alpha, t, k, srow, scol);
   }
 
+  void conv2Dmv(const Tensor& r, T beta, T alpha, const Tensor& t, 
+                const Tensor& k, long srow, long scol, const char* vf, 
+                const char* xc);
+  void conv2Dmv(T beta, T alpha, const Tensor& t, const Tensor& k,
+                long srow, long scol, const char* vf, const char* xc){
+    return conv2Dmv(*this, beta, alpha, t, k, srow, scol, vf, xc);                
+  }                   
 
+  void conv2Dmm(const Tensor& r, T beta, T alpha, const Tensor& t, 
+                    const Tensor& k, long srow, long scol, const char* vf, 
+                    const char* xc);
+  void conv2Dmm(T beta, T alpha, const Tensor& t, const Tensor& k,
+                long srow, long scol, const char* vf, const char* xc){
+    return conv2Dmm(*this, beta, alpha, t, k, srow, scol, vf, xc);                
+  }
+  
+  void conv2Dmul(const Tensor& r, T beta, T alpha, const Tensor& t, 
+                    const Tensor& k, long srow, long scol, const char* vf, 
+                    const char* xc);
+  void conv2Dmul(T beta, T alpha, const Tensor& t, const Tensor& k,
+                long srow, long scol, const char* vf, const char* xc){
+    return conv2Dmul(*this, beta, alpha, t, k, srow, scol, vf, xc);                
+  }
+  
+  void conv2Dcmul(const Tensor& r, T beta, T alpha, const Tensor& t, 
+                    const Tensor& k, long srow, long scol, const char* vf, 
+                    const char* xc);
+  void conv2Dcmul(T beta, T alpha, const Tensor& t, const Tensor& k,
+                long srow, long scol, const char* vf, const char* xc){
+    return conv2Dcmul(*this, beta, alpha, t, k, srow, scol, vf, xc);                
+  }
+  
+  void conv3DRevger(const Tensor& r, T beta, T alpha, const Tensor& t, 
+                    const Tensor& k, long sdepth, long srow, long scol);
+  void conv3DRevger(T beta, T alpha, const Tensor& t, const Tensor& k,
+                    long sdepth, long srow, long scol){
+    return conv3DRevger(*this, beta, alpha, t, k, sdepth, srow, scol);
+  } 
+  
+  void conv3Dmv(const Tensor& r, T beta, T alpha, const Tensor& t, 
+                    const Tensor& k, long sdepth, long srow, long scol,
+                    const char* vf, const char* xc);
+  void conv3Dmv(T beta, T alpha, const Tensor& t, const Tensor& k,
+                  long sdepth, long srow, long scol, const char* vf, 
+                  const char* xc){
+    return conv3Dmv(*this, beta, alpha, t, k, sdepth, srow, scol, vf, xc);                
+  }
+
+  void conv3Dmul(const Tensor& r, T beta, T alpha, const Tensor& t, 
+                    const Tensor& k, long sdepth, long srow, long scol,
+                    const char* vf, const char* xc);
+  void conv3Dmul(T beta, T alpha, const Tensor& t, const Tensor& k,
+                  long sdepth, long srow, long scol, const char* vf, 
+                  const char* xc){
+    return conv3Dmul(*this, beta, alpha, t, k, sdepth, srow, scol, vf, xc);               
+  }
+
+  void conv3Dcmul(const Tensor& r, T beta, T alpha, const Tensor& t, 
+                    const Tensor& k, long sdepth, long srow, long scol,
+                    const char* vf, const char* xc);
+  void conv2Dcmul(T beta, T alpha, const Tensor& t, const Tensor& k,
+                  long sdepth, long srow, long scol, const char* vf, 
+                  const char* xc){
+    return conv3Dcmul(*this, beta, alpha, t, k, sdepth, srow, scol, vf, xc);               
+  }
+  
   // TODO(tudorb): TH doesn't distinguish between a 1-element 1-dimensional
   // array (aka 1-element vector) and a scalar.
   bool isScalar() const;
