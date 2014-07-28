@@ -580,6 +580,13 @@ auto Tensor<T>::cross(const Tensor& b, int dim) const -> Tensor {
   return dest;
 }
 
+
+template <class>
+void Tensor<T>::conv2DRevger(const Tensor& r, T beta, T alpha, const Tensor& t, 
+                    const Tensor& k, long srow, long scol){
+  return Ops::_conv2DRevger();
+}
+
 template <class T>
 void Tensor<T>::clear() {
   Ops::_setStorage(t_, nullptr, 0, nullptr, nullptr);
