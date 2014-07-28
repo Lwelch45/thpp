@@ -213,6 +213,18 @@ template <> struct TensorOps<real> {
     return THTensor_(cross)(r, a, b, dim);
   }
 
+  //THTensorConv.h
+  static void _conv2DRevger(THTensor* r, real beta, real alpha,THTensor* t,
+			    THTensor* k, long srow, long scol){
+    return THTensor_(conv2DRevger)(r, beta, alpha, t, k, srow, scol); 
+  }
+
+  static void _conv2DRevgerm(THTensor* r, real beta, real alpha,THTensor* t, 
+                            THTensor* k, long srow, long scol){
+    return THTensor_(conv2DRevgerm)(r, beta, alpha, t, k, srow, scol); 
+  }
+
+
 #define S1(X) #X
 #define S(X) S1(X)
   static constexpr const char* kLuaTypeName = "torch."
