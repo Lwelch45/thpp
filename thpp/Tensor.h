@@ -375,6 +375,18 @@ class Tensor {
   // https://github.com/torch/torch7/blob/master/doc/maths.md
   Tensor cross(const Tensor& b, int dim = -1) const;
 
+  //These functions perform convolutions on 3-dimensional and 4 dimensional
+  //Tensors.
+  //TODO(Laurence): write tests because TH dosen't include any for the
+  //individual implementations.
+  void conv2DRevger(const Tensor& r, T beta, T alpha, const Tensor& t, 
+                    const Tensor& k, long srow, long scol);
+  void conv2DRevger(T beta, T alpha, const Tensor& t, 
+                    const Tensor& k, long srow, long scol){
+    return conv2DRevger(*r, beta, alpha, t, k, srow, scol);
+  }
+
+
   // TODO(tudorb): TH doesn't distinguish between a 1-element 1-dimensional
   // array (aka 1-element vector) and a scalar.
   bool isScalar() const;

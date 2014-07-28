@@ -214,15 +214,69 @@ template <> struct TensorOps<real> {
   }
 
   //THTensorConv.h
-  static void _conv2DRevger(THTensor* r, real beta, real alpha,THTensor* t,
+  static void _conv2DRevger(THTensor* r, real beta, real alpha, THTensor* t,
 			    THTensor* k, long srow, long scol){
-    return THTensor_(conv2DRevger)(r, beta, alpha, t, k, srow, scol); 
+    return THTensor_(conv2DRevger)(r, beta, alpha, t, k, srow, scol);
+  }
+  static void _conv2DRevgerm(THTensor* r, real beta, real alpha, THTensor* t,
+			      THTensor* k, long srow, long scol){
+    return THTensor_(conv2DRevgerm)(r, beta, alpha, t, k, srow, scol);
+  }
+  static void _conv2Dger(THTensor* r, real beta, real alpha, THTensor* t,
+			 THTensor* k, long srow, long scol, const char* vf,
+			 const char* xc){
+    return THTensor_(conv2Dger)(r, beta, alpha, t, k, srow, scol, vf, xc);
+  }
+  static void _conv2Dmvr(THTensor* r, real beta, real alpha, THTensor* t,
+                         THTensor* k, long srow, long scol, const char* vf,
+                         const char* xc){
+    return THTensor_(conv2Dmv)(r, beta, alpha, t, k, srow, scol, vf, xc);
+  }
+  static void _conv2Dmm(THTensor* r, real beta, real alpha, THTensor* t,
+                         THTensor* k, long srow, long scol, const char* vf,
+                         const char* xc){
+    return THTensor_(conv2Dmm)(r, beta, alpha, t, k, srow, scol, vf, xc);
+  }
+  static void _conv2Dmul(THTensor* r, real beta, real alpha, THTensor* t,
+                         THTensor* k, long srow, long scol, const char* vf,
+                         const char* xc){
+    return THTensor_(conv2Dmul)(r, beta, alpha, t, k, srow, scol, vf, xc);
+  }
+  static void _conv2Dcmul(THTensor* r, real beta, real alpha, THTensor* t,
+                         THTensor* k, long srow, long scol, const char* vf,
+                         const char* xc){
+    return THTensor_(conv2Dcmul)(r, beta, alpha, t, k, srow, scol, vf, xc);
   }
 
-  static void _conv2DRevgerm(THTensor* r, real beta, real alpha,THTensor* t, 
-                            THTensor* k, long srow, long scol){
-    return THTensor_(conv2DRevgerm)(r, beta, alpha, t, k, srow, scol); 
+  static void _conv3DRevger(THTensor* r, real beta, real alpha,THTensor* t,
+                            THTensor* k, long sdepth, long srow, long scol){
+    return THTensor_(conv3DRevger)(r, beta, alpha, t, k, sdepth, srow, scol);
   }
+  static void _conv3Dger(THTensor* r, real beta, real alpha, THTensor* t,
+                         THTensor* k, long sdepth, long srow, long scol,
+                         const char* vf, const char* xc){
+    return THTensor_(conv3Dger)(r, beta, alpha, t, k, sdepth, srow, scol,
+                                vf, xc);
+  }
+  static void _conv3Dmv(THTensor* r, real beta, real alpha, THTensor* t,
+                         THTensor* k, long sdepth, long srow, long scol,
+                         const char* vf, const char* xc){
+    return THTensor_(conv3Dmv)(r, beta, alpha, t, k, sdepth, srow, scol, 
+                                vf, xc);
+  }
+  static void _conv3Dmul(THTensor* r, real beta, real alpha, THTensor* t,
+                         THTensor* k, long sdepth, long srow, long scol,
+                         const char* vf, const char* xc){
+    return THTensor_(conv3Dmul)(r, beta, alpha, t, k, sdepth, srow, scol, 
+                                vf, xc);
+  }
+  static void _conv3Dcmul(THTensor* r, real beta, real alpha, THTensor* t,
+                         THTensor* k, long sdepth, long srow, long scol,
+                         const char* vf, const char* xc){
+    return THTensor_(conv3Dcmul)(r, beta, alpha, t, k, sdepth, srow, scol, 
+                                vf, xc);
+  }
+
 
 
 #define S1(X) #X
