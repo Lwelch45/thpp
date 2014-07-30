@@ -581,19 +581,19 @@ auto Tensor<T>::cross(const Tensor& b, int dim) const -> Tensor {
 }
 
 
-template <class>
+template <class T> 
 void Tensor<T>::conv2DRevger(const Tensor& r, T beta, T alpha, const Tensor& t, 
                              const Tensor& k, long srow, long scol){
   return Ops::_conv2DRevger(r.mut(), beta, alpha, t, k, srow, scol);
 }
 
-template <class>
+template <class T> 
 void Tensor<T>::conv2DRevgerm(const Tensor& r, T beta, T alpha, const Tensor& t, 
                               const Tensor& k, long srow, long scol){
   return Ops::_conv2DRevgerm(r.mut(), beta, alpha, t, k, srow, scol);
 }
 
-template <class>
+template <class T> 
 void Tensor<T>::conv2Dmv(const Tensor& r, T beta, T alpha, const Tensor& t, 
                          const Tensor& k, long srow, long scol, const char* vf, 
                          const char* xc){
@@ -601,7 +601,7 @@ void Tensor<T>::conv2Dmv(const Tensor& r, T beta, T alpha, const Tensor& t,
                         vf, xc);
 }
 
-template <class>
+template <class T> 
 void Tensor<T>::conv2Dmm(const Tensor& r, T beta, T alpha, const Tensor& t, 
                          const Tensor& k, long srow, long scol, const char* vf, 
                          const char* xc){
@@ -609,7 +609,7 @@ void Tensor<T>::conv2Dmm(const Tensor& r, T beta, T alpha, const Tensor& t,
                         vf, xc);
 }
 
-template <class>
+template <class T> 
 void Tensor<T>::conv2Dmul(const Tensor& r, T beta, T alpha, const Tensor& t, 
                           const Tensor& k, long srow, long scol, const char* vf, 
                           const char* xc){
@@ -617,7 +617,7 @@ void Tensor<T>::conv2Dmul(const Tensor& r, T beta, T alpha, const Tensor& t,
                          vf, xc);
 }
 
-template <class>
+template <class T> 
 void Tensor<T>::conv2Dcmul(const Tensor& r, T beta, T alpha, const Tensor& t, 
                            const Tensor& k, long srow, long scol, const char* vf, 
                            const char* xc){
@@ -625,14 +625,14 @@ void Tensor<T>::conv2Dcmul(const Tensor& r, T beta, T alpha, const Tensor& t,
                          vf, xc);
 }
 
-template <class>
+template <class T> 
 void Tensor<T>::conv3DRevger(const Tensor& r, T beta, T alpha, const Tensor& t, 
                              const Tensor& k, long sdepth, long srow,
                              long scol){
   return Ops::_conv3DRevger(r.mut(), beta, alpha, t, k, sdepth, srow, scol);
 }
 
-template <class>
+template <class T> 
 void Tensor<T>::conv3Dmv(const Tensor& r, T beta, T alpha, const Tensor& t, 
                          const Tensor& k, long srow, long scol, 
                          long sdepth, const char* vf, const char* xc){
@@ -640,7 +640,7 @@ void Tensor<T>::conv3Dmv(const Tensor& r, T beta, T alpha, const Tensor& t,
                         sdepth, vf, xc);
 }
 
-template <class>
+template <class T> 
 void Tensor<T>::conv3Dmul(const Tensor& r, T beta, T alpha, const Tensor& t, 
                          const Tensor& k, long srow, long scol, 
                          long sdepth, const char* vf, const char* xc){
@@ -648,7 +648,7 @@ void Tensor<T>::conv3Dmul(const Tensor& r, T beta, T alpha, const Tensor& t,
                         sdepth, vf, xc);
 }
 
-template <class>
+template <class T> 
 void Tensor<T>::conv3Dcmul(const Tensor& r, T beta, T alpha, const Tensor& t, 
                          const Tensor& k, long srow, long scol, 
                          long sdepth, const char* vf, const char* xc){
