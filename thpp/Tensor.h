@@ -453,7 +453,7 @@ class Tensor {
   void conv3Dcmul(const Tensor& r, T beta, T alpha, const Tensor& t, 
                     const Tensor& k, long sdepth, long srow, long scol,
                     const char* vf, const char* xc);
-  void conv2Dcmul(T beta, T alpha, const Tensor& t, const Tensor& k,
+  void conv3Dcmul(T beta, T alpha, const Tensor& t, const Tensor& k,
                   long sdepth, long srow, long scol, const char* vf, 
                   const char* xc){
     return conv3Dcmul(*this, beta, alpha, t, k, sdepth, srow, scol, vf, xc);               
