@@ -10,7 +10,7 @@ template <class T>
 class TensorIterator {
  public:
   ~TensorIterator();
-  TensorIterator(const Tensor<T> src);
+  TensorIterator(Tensor<T> src);
   bool notdone();
   T* next();
  private:
@@ -18,7 +18,7 @@ class TensorIterator {
   int currentDim; // current dimension being looped on.
   long index; // current posiion in the Tensor
   long* dimensions; // working map of the structure of Tensor
-  const Tensor<T>* src; //pointer to the tensor currently being iterated through
+  Tensor<T>* src; //pointer to the tensor currently being iterated through
 
 };
 }
