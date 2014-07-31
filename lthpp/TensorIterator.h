@@ -4,7 +4,7 @@
 #define THPP_TENSORITERATOR_H
 
 #include "Tensor.h"
-
+namespace thpp {
 //Class to iterate over the contents of a Tensor.
 template <class T>
 class TensorIterator {
@@ -21,7 +21,5 @@ class TensorIterator {
   Tensor<T>* src; //pointer to the tensor currently being iterated through 
   
 };
-
-
-
+}
 #endif
