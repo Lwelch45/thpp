@@ -22,4 +22,5 @@ class TensorIterator {
   
 };
 }
+#include "TensorIterator-inh.h"
 #endif
