@@ -1,1 +1,27 @@
+//This code borrows heavily from the iterator classes found in eblearn.
+// Find here: http://sourceforge.net/p/eblearn/code/HEAD/tree/trunk/core/libidx/include/idxiter.h
+#ifndef THPP_TENSORITERATOR_H
+#define THPP_TENSORITERATOR_H
 
+#include "Tensor.h"
+
+//Class to iterate over the contents of a Tensor.
+template <class T>
+class TensorIterator {
+ public:
+  ~TensorIterator();
+  TensorIterator(const Tensor<T> src);
+  bool notdone();
+  T* next();
+ private:
+  T* data;
+  int currentDim; // current dimension being looped on.
+  long index; // current posiion in the Tensor
+  long* dimensions; // working map of the structure of Tensor
+  Tensor<T>* src; //pointer to the tensor currently being iterated through 
+  
+};
+
+
+
+#endif
