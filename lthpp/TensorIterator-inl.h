@@ -5,6 +5,11 @@
 #include "folly/Malloc.h"
 
 namespace thpp {
+template <class T>
+TensorITerator<T>::~TensorIterator(){
+  src = nullptr;
+  data = nullptr;
+}
 
 template <class T>
 TensorIterator<T>::TensorIterator(Tensor<T>* toIterate) : data(toIterate->data()), index(0),
