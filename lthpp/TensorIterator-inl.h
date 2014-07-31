@@ -7,10 +7,10 @@
 namespace thpp {
 
 template <class T>
-TensorIterator<T>::TensorIterator(const Tensor<T> toIterate) : data(src.data()), index(0),
-                                  currentDim(src->ndims()-1){ 
+TensorIterator<T>::TensorIterator(const Tensor<T> toIterate) : data(toIterate.data()), index(0),
+                                  currentDim(toIterate.ndims()-1){ 
   src = &toIterate;
-  dimensions = static_cast<long>(folly::checkedMalloc( src->ndims() * sizeof(long)));
+  dimensions = (folly::checkedMalloc( src->ndims() * sizeof(long)));
 }
 
 template <class T>
@@ -22,10 +22,10 @@ T* TensorIterator<T>::next(){
   while (currentDim  >=0){
    if (++dimensions[currentDim] >= src->size(currentDim)){
     data -= src->size(currentDim)*src->stride(currentDim);
-    diimensions[currentDim--] = -1;
+    dimensions[currentDim--] = -1;
     continue;
    }
-   data += src->stride(j);
+   data += src->stride(currentDim);
    if(currentDim != src->ndims())
     currentDim++;
    else 
