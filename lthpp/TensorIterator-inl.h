@@ -7,9 +7,9 @@
 namespace thpp {
 
 template <class T>
-TensorIterator<T>::TensorIterator(const Tensor<T> toIterate) : data(toIterate.data()), index(0),
-                                  currentDim(toIterate.ndims()-1){ 
-  src = &toIterate;
+TensorIterator<T>::TensorIterator(Tensor<T>* toIterate) : data(toIterate->data()), index(0),
+                                  currentDim(toIterate->ndims()-1){ 
+  src = toIterate;
   dimensions = (folly::checkedMalloc( src->ndims() * sizeof(long)));
 }
 
