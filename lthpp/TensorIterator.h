@@ -18,7 +18,7 @@ class TensorIterator {
   int currentDim; // current dimension being looped on.
   long index; // current posiion in the Tensor
   long* dimensions; // working map of the structure of Tensor
-  Tensor<T>* src; //pointer to the tensor currently being iterated through
+  const Tensor<T>* src; //pointer to the tensor currently being iterated through
 
 };
 }
