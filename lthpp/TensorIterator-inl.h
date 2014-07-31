@@ -10,7 +10,7 @@ template <class T>
 TensorIterator<T>::TensorIterator(Tensor<T>* toIterate) : data(toIterate->data()), index(0),
                                   currentDim(toIterate->ndims()-1){ 
   src = toIterate;
-  dimensions = (folly::checkedMalloc( src->ndims() * sizeof(long)));
+  dimensions = (int long *)(folly::checkedMalloc( src->ndims() * sizeof(long)));
 }
 
 template <class T>
