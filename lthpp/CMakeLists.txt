@@ -56,6 +56,8 @@ SET(h
   StorageSerialization-inl.h
   Tensor.h
   Tensor-inl.h
+  TensorIterator.h
+  TensorIterator-inl.h
   TensorSerialization-inl.h
 )
 

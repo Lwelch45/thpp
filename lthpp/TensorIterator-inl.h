@@ -8,16 +8,16 @@ namespace thpp {
 
 template <class T>
 TensorIterator<T>::TensorIterator(const Tensor<T> toIterate) : data(src.data()), index(0),
-                                  currentDim(src.ndims()){ 
-  src = &toITerate;
-  dimensions = static_cast<long>(folly::checkedMalloc(n * sizeof(long)));
+                                  currentDim(src->ndims()-1){ 
+  src = &toIterate;
+  dimensions = static_cast<long>(folly::checkedMalloc( src->ndims() * sizeof(long)));
 }
 
 template <class T>
 bool TensorIterator<T>::notdone() {return index < src->numel(); }
 
 template <class T>
-T* TensprIterator<T>::next(){
+T* TensorIterator<T>::next(){
   ++index;
   while (currentDim  >=0){
    if (++dimensions[currentDim] >= src->dim(currentDim)){
