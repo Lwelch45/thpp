@@ -10,7 +10,7 @@ template <class T>
 class TensorIterator {
  public:
   ~TensorIterator();
-  TensorIterator(Tensor<T> src);
+  TensorIterator(Tensor<T>* src);
   bool notdone();
   T* next();
  private:
