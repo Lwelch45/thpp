@@ -20,13 +20,13 @@ template <class T>
 T* TensorIterator<T>::next(){
   ++index;
   while (currentDim  >=0){
-   if (++dimensions[currentDim] >= src->dim(currentDim)){
-    data -= src->dim(currentDim)*src->stride(currentDim);
+   if (++dimensions[currentDim] >= src->size(currentDim)){
+    data -= src->size(currentDim)*src->stride(currentDim);
     diimensions[currentDim--] = -1;
     continue;
    }
    data += src->stride(j);
-   if(currentDim != src->ndim)
+   if(currentDim != src->ndims())
     currentDim++;
    else 
     return data;
