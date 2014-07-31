@@ -6,7 +6,7 @@
 
 namespace thpp {
 template <class T>
-TensorITerator<T>::~TensorIterator(){
+TensorIterator<T>::~TensorIterator(){
   src = nullptr;
   data = nullptr;
 }
